@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "BetterVGG",
+  "description": "An unnoficial extension that adds multiple features to vaush.gg",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": { "128": "128.png", "48": "48.png" },
+  "version": "1.3",
+  "web_accessible_resources": ["script.js", "xhook.js", "injectcss.js"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.vaush.gg/*"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "js": ["xhook.js", "script.js"]
+    },
+    {
+      "matches": ["https://*.vaush.gg/*"],
+      "run_at": "document_end",
+      "all_frames": true,
+      "js": ["injectcss.js"]
+    }
+  ]
+}
